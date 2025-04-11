@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Navigasi</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Aesthetic Background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: rgb(215, 147, 147);
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            background: linear-gradient(120deg, #ffced6, #fdced6, #ffd3da);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Titles */
+        h1, header {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: rgba(255, 229, 236, 0.9);
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        header a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.35s ease;
+        }
+
+        header a:hover {
+            color: hsl(336, 71%, 80%);
+        }
+
+        /* Background Effects */
+        .blur-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 182, 193, 0.4);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .shape1 { top: 10%; left: 15%; }
+        .shape2 { bottom: 15%; right: 20%; }
+        .shape3 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 2s forwards;
+        }
+
+        .slide-in {
+            animation: slideIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="agama.html">Agama</a>
+        <a href="pkn.html">PPKN</a>
+        <a href="bahasaindonesia.html">Bahasa Indonesia</a>
+        <a href="bahasainggris.html">Bahasa Inggris</a>
+        <a href="bahasamandarin.html">Bahasa Mandarin</a>
+        <a href="ips.html">IPS</a>
+    </header>
+
+    <!-- Background Effects -->
+    <div class="blur-shape shape1"></div>
+    <div class="blur-shape shape2"></div>
+    <div class="blur-shape shape3"></div>
+
+    <h1> ────୨ৎ──── </h1>
+    <h1> ~ Edutrip Yogyakarta ~</h1>
+    <h1> ────୨ৎ────</h1>
+    <h2> Yerryn Daviana Tsui / 8E/ 28</h2>
+
+    <!-- Animated Images -->
+    <div class="image-gallery">
+        <img src="Unknown-70.jpg" class="fade-in" alt="Aesthetic Image 1">
+        <img src="Unknown-71.jpg" class="slide-in" alt="Aesthetic Image 2">
+        <img src="malioboro.jpg" class="fade-in" alt="Aesthetic Image 3">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll(".image-gallery img");
+
+            function checkScroll() {
+                images.forEach(img => {
+                    const rect = img.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.85) {
+                        img.style.opacity = "1";
+                        img.style.transform = "translateY(0)";
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll(); // Run on load
+        });
+    </script>
+</body>
+</html>
+
+
+
